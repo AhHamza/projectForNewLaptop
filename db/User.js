@@ -19,7 +19,7 @@ const firestoreDB = getFirestore(app);
 
 
 async function addUser(user) {
-     await setDoc(doc(firestoreDB, "users",user.id), { user});
+     await setDoc(doc(firestoreDB, "users",user.id),user); //if user with id = user.id not found, add new user with this id
 }
 
 async function addUsersToDocuments(collectionName,docId,userCollection){
@@ -49,14 +49,45 @@ async function getUsers() {
         return {id: doc.id, ...doc.data()};
     });
 }
+
+async function updateUsers(tempUser) {
+    try {
+        console.log(tempUser);
+        await setDoc(doc(db, "users", tempUser.id), tempUser); //if document with "tempDoc.id" not found add it, else update the document with this given field
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+
 //                    F-> for "football"
- async function updateFAvailable(tempDoc) {
+ async function updateFootball(tempDoc) {
      try {
          console.log(tempDoc);
          await setDoc(doc(db, "football", tempDoc.id), tempDoc); //if document with "tempDoc.id" not found add it, else update it
      } catch (e) {
          console.error(e);
      }
+
+}
+
+async function updateBasketball(tempDoc) {
+    try {
+        console.log(tempDoc);
+        await setDoc(doc(db, "basketball", tempDoc.id), tempDoc); //if document with "tempDoc.id" not found add it, else update it
+    } catch (e) {
+        console.error(e);
+    }
+
+}
+
+async function updateTennis(tempDoc) {
+    try {
+        console.log(tempDoc);
+        await setDoc(doc(db, "tennis", tempDoc.id), tempDoc); //if document with "tempDoc.id" not found add it, else update it
+    } catch (e) {
+        console.error(e);
+    }
 
 }
 
@@ -94,4 +125,4 @@ async function deleteFStadium(docId) {
 //     return unsubscribe;
 // }
 
-export {getUsers, addUser,updateFAvailable,addUsersToDocuments};
+export {getUsers, addUser,updateUsers,updateFootball,updateBasketball,updateTennis,addUsersToDocuments};

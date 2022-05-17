@@ -19,7 +19,7 @@ const Register = ({ navigation }) => {
         login(email, password).then(
             () => {
               console.log('login completed');
-              getUserUId().then((id) => addUser({id: id, email, password,role}));
+              getUserUId().then((id) => addUser({ id, email, password,role}));
             }
         )
       })

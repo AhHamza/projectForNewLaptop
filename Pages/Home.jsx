@@ -26,18 +26,21 @@ export default function Home({ navigation, route }) {
               <Image source={footballBackground} style={styles.ImageStyle} />
             </TouchableOpacity>
           </View>
-          <View style={styles.tennisStyle}>
-            <Text style={styles.cardTitle}>Tennis</Text>
-            <TouchableOpacity onPress={() => { navigation.navigate('Tennis') }}>
-              <Image source={tennisBackground} style={styles.ImageStyle} />
-            </TouchableOpacity>
-          </View>
+
           <View source={basketballBackground} style={styles.basketballStyle}>
             <Text style={styles.cardTitle}>Basketball</Text>
             <TouchableOpacity onPress={() => { navigation.navigate('Basketball') }}>
               <Image source={basketballBackground} style={styles.ImageStyle} />
             </TouchableOpacity>
           </View>
+
+          <View style={styles.tennisStyle}>
+            <Text style={styles.cardTitle}>Tennis</Text>
+            <TouchableOpacity onPress={() => { navigation.navigate('Tennis') }}>
+              <Image source={tennisBackground} style={styles.ImageStyle} />
+            </TouchableOpacity>
+          </View>
+
         </View>
       </ScrollView>
 

@@ -6,6 +6,7 @@ import {Linking} from "react-native-web";
 export default function item({ e , navigation} , key ) {
     function handle(){                          // name of stadium
             navigation.navigate('ValidationPage', {name: e.name})
+        console.log("stad name is: ",e.name)
 
     }
 
